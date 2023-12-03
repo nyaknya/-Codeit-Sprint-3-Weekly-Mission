@@ -1,10 +1,10 @@
 
 /* ========== 서브-로그인, 회원가입 ========== */
 .sign-wrap{
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding-top: 14.875rem;
   background: var(--color-gray0);
   height: 100vh;
 }
@@ -20,13 +20,14 @@
 
 .sign-header .logo{
   margin-bottom: .625rem;
+  cursor: pointer;
 }
 
 .sign-header .logo img{
   width: 13.125rem;
 }
 
-.sign-header a{
+.sign-header p a{
   margin-left: .3125rem;
   color: var(--color-primary);
   border-bottom: .0625rem solid var(--color-primary);
@@ -92,6 +93,10 @@
   background: var(--color-gray20);
   border: .0625rem solid var(--color-gray40);
   border-radius: .5rem;
+}
+
+.sign-sns span{
+  font-size: 0.875rem;
 }
 
 .sign-sns .sign-sns-icon{
