@@ -67,10 +67,14 @@
   outline: .0625rem solid var(--color-primary);
 }
 
+.sign-form-wrap .sign-input-wrap input.input-error{
+  border-color: var(--color-red);
+}
+
 .sign-form-wrap .sign-input-wrap i{
   position: absolute;
   right: .9375rem;
-  bottom: 1.125rem;
+  top: 3.125rem;
 }
 
 .sign-form-wrap .sign-submit{

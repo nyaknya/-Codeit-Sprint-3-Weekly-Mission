@@ -20,6 +20,7 @@ const passwordPattern = /(?=.*[0-9])(?=.*[A-Za-z])^.{8,}$/;
 function inputValueEmpty(){
   if(this === $emailInput){
     if(this.value.trim() === ""){
+      this.classList.add("input-error");
       errorMessageEmail.textContent = "이메일을 입력해주세요.";
     }
     this.parentElement.append(errorMessageEmail);
@@ -28,6 +29,7 @@ function inputValueEmpty(){
   if(this === $passwordInput){
     console.log("패스워드 아웃");
     if(this.value.trim() === ""){
+      this.classList.add("input-error");
       errorMessagePassword.textContent = "비밀번호를 입력해주세요";
     } 
     this.parentElement.append(errorMessagePassword);
