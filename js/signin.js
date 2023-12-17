@@ -16,12 +16,14 @@ errorMessagePassword.classList.add("error-message");
 const emailPattern = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
 const passwordPattern = /(?=.*[0-9])(?=.*[A-Za-z])^.{8,}$/;
 
-// 값 비어있음
-function inputValueEmpty(){
+// 값 검사
+function inputValueTest(){
   if(this === $emailInput){
     if(this.value.trim() === ""){
       this.classList.add("input-error");
       errorMessageEmail.textContent = "이메일을 입력해주세요.";
+    }else if(!emailPattern.test(this.value)){
+      errorMessageEmail.textContent = "올바른 이메일 주소가 아닙니다.";
     }
     this.parentElement.append(errorMessageEmail);
   }
@@ -38,8 +40,8 @@ function inputValueEmpty(){
 
 // 남겨두면 좋을것같아서... 공통으로도 지정해봤으나 이벤트 타겟 or 디스가 제대로 안찍혔음.
 // let test = document.querySelector("form");
-// test.addEventListener("focusout", inputValueEmpty);
+// test.addEventListener("focusout", inputValueTest);
 
 for (let i = 0; i < $signInput.length; i++){
-  $signInput[i].addEventListener("focusout", inputValueEmpty);
+  $signInput[i].addEventListener("focusout", inputValueTest);
 }
