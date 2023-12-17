@@ -103,3 +103,22 @@
   display: flex;
   gap: 1rem;
 }
+
+/* 에러 메세지 */
+.sign-form-wrap .sign-input-wrap .error-message{
+  color: var(--color-red);
+}
+
+
+/* 반응형 */
+
+/* 태블릿 이하 */
+@media (max-width: 1199px) {
+
+} 
+
+/* 모바일 */
+@media (min-width: 375px) and (max-width: 767px) {
+
+
+}
