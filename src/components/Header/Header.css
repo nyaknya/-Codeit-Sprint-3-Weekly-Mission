@@ -1,6 +1,5 @@
-
 /* 헤더 */
-header{
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,6 +10,12 @@ header{
   background: var(--color-gray0);
 }
 
-header .cta{
+header .cta {
   width: 5.5rem;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  header {
+    padding: 0.8125rem 2rem;
+  }
 }

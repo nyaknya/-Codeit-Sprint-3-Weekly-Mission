@@ -1,5 +1,4 @@
-
-.cta{
+.cta {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,13 +8,17 @@
   font-size: 1.125rem;
   font-weight: 600;
   cursor: pointer;
-  color: var( --color-white);
+  color: var(--color-white);
   border: none;
   font-family: "pretendard", sans-serif;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-skyblue));
-  border-radius: .5rem;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-skyblue)
+  );
+  border-radius: 0.5rem;
 }
 
-.cta a{
-  color: var( --color-white);
+.cta a {
+  color: var(--color-white);
 }

@@ -1,8 +1,9 @@
-.searchbar-container{
-  padding: 2.5rem 0;
+.searchbar-container {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
-.searchbar-container .search-input{
+.searchbar-container .search-input {
   display: flex;
   box-sizing: border-box;
   width: 100%;
