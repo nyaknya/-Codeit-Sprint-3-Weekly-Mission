@@ -6,7 +6,6 @@ import instagram from "../../assets/instagram.svg";
 
 function Footer(){
   return (
-    <>
       <footer>
         <div className="footer-copy">
           <span>©codeit - 2023</span>
@@ -30,7 +29,6 @@ function Footer(){
           </a>
         </div>
       </footer>
-    </>
   )
 }
 

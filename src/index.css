@@ -1,13 +1,79 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root{
+  /* color */
+  --color-primary: #6D6AFE;
+  --color-red: #FF5B56;
+  --color-black: #111322;
+  --color-white: #ffffff;
+  --color-gray80: #3E3E43;
+  --color-gray60: #9FA6B2;
+  --color-gray40: #CCD5E3;
+  --color-gray20: #E7EFFB;
+  --color-gray0: #F0F6FF;
+  --color-transparent: transparent;
+  --color-skyblue: #6AE3FE;
+  --color-pastelblue: #6FBAFF;
+  --color-graypurple: rgba(82, 136, 133, 0.22);
+  --color-pink: #FF9F9F;
+  --color-hotpink: #FE578F;
+  --color-yellow: #FFD88B;
+  --color-text: #6B6B6B;
+  --color-copy: #676767;
+  --color-links: #CFCFCF;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+html{
+  font-size: 16px;
+}
+
+body, input, textarea, button, i{
+  font-family: 'pretendard', sans-serif;
+}
+
+ul, li{
+  list-style: none;
+}
+
+.container{
+  position: relative;
+  max-width: 62.375rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.pc-blind{
+  display: none;
+}
+
+
+/* 태블릿 이하 */
+@media (max-width: 1199px) {
+  .pc-blind{
+    display: unset;
+  }  
+} 
+
+/* 태블릿 */
+@media all and (min-width:768px) and (max-width:1199px) { 
+  .container{
+    max-width: 43.625rem;
+  }
+} 
+
+
+/* 모바일 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .cta{
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
 }
