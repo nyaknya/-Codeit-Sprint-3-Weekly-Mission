@@ -21,8 +21,6 @@ function Header(){
     fetchUserData();
   })
 
-  console.log(user);
-
   return(
     <header className="sign-header">
       <h1 className="logo"><a href="/"><img src={logo} alt="로고"/></a></h1>
