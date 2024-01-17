@@ -16,7 +16,7 @@ function Titlebar() {
         setOwner(data.folder.owner.name);
         setFolder(data.folder.name);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
     fetchFolderDate();

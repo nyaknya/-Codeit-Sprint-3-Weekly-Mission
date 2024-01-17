@@ -9,10 +9,10 @@ function Card({ data }) {
   const creatDate = createdAt.substring(0, 10).replaceAll(/-/g, ". ");
 
   return (
-    <li className="card">
+    <>
       <a href={url} target="_blank">
         <div className="card-imgbox">
-          <img src={imageSource || defalutimg} alt={title} />
+          <img src={imageSource ?? defalutimg} alt={title} />
         </div>
         <div className="card-content">
           <time className="time-ago" datatime={createdAt}>
@@ -24,7 +24,7 @@ function Card({ data }) {
           </time>
         </div>
       </a>
-    </li>
+    </>
   );
 }
 

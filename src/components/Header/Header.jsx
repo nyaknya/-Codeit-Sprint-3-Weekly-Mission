@@ -6,15 +6,15 @@ import "./Header.css";
 import logo from "../../assets/logo.svg";
 
 function Header() {
-  const [user, setUser] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const { email } = await getUserInfo();
-        setUser(email);
+        setUserEmail(email);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
     fetchUserData();
@@ -27,7 +27,7 @@ function Header() {
           <img src={logo} alt="로고" />
         </a>
       </h1>
-      {user ? <UserProfile userEmail={user} /> : <Cta />}
+      {userEmail ? <UserProfile userEmail={userEmail} /> : <Cta />}
     </header>
   );
 }
