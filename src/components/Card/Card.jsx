@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import getElapsedTime from "../../../utils/calculateDate.js";
+import getElapsedTime from "../../utils/calculateDate.js";
 import "./Card.css";
 
 function Card({ data }) {

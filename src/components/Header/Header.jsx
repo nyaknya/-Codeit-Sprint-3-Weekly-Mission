@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getUserInfo } from "../../utils/api";
-import UserProfile from "./UserProfile/UserProfile";
-import Cta from "./Cta/Cta";
+import UserProfile from "../UserProfile/UserProfile";
+import Cta from "../Cta/Cta";
 import "./Header.css";
 
 function Header() {

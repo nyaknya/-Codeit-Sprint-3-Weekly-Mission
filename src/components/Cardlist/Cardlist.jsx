@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../Card/Card";
-import { getFolderInfo } from "../../../utils/api";
+import { getFolderInfo } from "../../utils/api";
 import "./Cardlist.css";
 
 function Cardlist() {
