@@ -10,7 +10,7 @@ function Titlebar() {
   useEffect(() => {
     const fetchFolderDate = async () => {
       try {
-        const { data } = await getFolderInfo();
+        const data = await getFolderInfo();
         setProfileImg(data.folder.owner.profileImageSource);
         setOwner(data.folder.owner.name);
         setFolder(data.folder.name);

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 function Footer() {
@@ -7,22 +8,22 @@ function Footer() {
         <span>©codeit - 2023</span>
       </div>
       <div className="footer-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="faq.html">FAQ</a>
+        <Link to="privacy.html">Privacy Policy</Link>
+        <Link to="faq.html">FAQ</Link>
       </div>
       <div className="footer-sns">
-        <a href="https://www.facebook.com/" target="_blank">
+        <Link to="https://www.facebook.com/" target="_blank">
           <img src="/assets/facebook.svg" alt="facebook 로고" />
-        </a>
-        <a href="https://twitter.com/" target="_blank">
+        </Link>
+        <Link to="https://twitter.com/" target="_blank">
           <img src="/assets/twitter.svg" alt="twitter 로고" />
-        </a>
-        <a href="https://www.youtube.com/" target="_blank">
+        </Link>
+        <Link to="https://www.youtube.com/" target="_blank">
           <img src="/assets/youtube.svg" alt="youtube 로고" />
-        </a>
-        <a href="https://www.instagram.com/" target="_blank">
+        </Link>
+        <Link to="https://www.instagram.com/" target="_blank">
           <img src="/assets/instagram.svg" alt="instagram 로고" />
-        </a>
+        </Link>
       </div>
     </footer>
   );

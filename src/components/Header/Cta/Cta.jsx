@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 function Cta() {
   return (
     <div className="cta">
-      <a href="/signin.html">로그인</a>
+      <Link to="/signin.html">로그인</Link>
     </div>
   );
 }

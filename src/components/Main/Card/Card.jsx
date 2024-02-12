@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import getElapsedTime from "../../../utils/calculateDate.js";
 import "./Card.css";
 
@@ -9,7 +10,7 @@ function Card({ data }) {
 
   return (
     <>
-      <a href={url} target="_blank">
+      <Link to={url} target="_blank">
         <div className="card-imgbox">
           <img src={imageSource ?? "/assets/defalutimg.png"} alt={title} />
         </div>
@@ -22,7 +23,7 @@ function Card({ data }) {
             {creatDate}
           </time>
         </div>
-      </a>
+      </Link>
     </>
   );
 }

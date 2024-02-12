@@ -1,16 +1,16 @@
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Titlebar from "./components/Titlebar/Titlebar";
-import Main from "./components/Main/Main";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import FolderPage from "./pages/FolderPage/FolderPage";
+import SharedPage from "./pages/SharedPage/SharedPage";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Titlebar />
-      <Main />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/shared" element={<SharedPage />} />
+        <Route path="/folder" element={<FolderPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
