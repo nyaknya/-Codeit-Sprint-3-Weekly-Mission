@@ -3,7 +3,6 @@ import { getUserInfo } from "../../utils/api";
 import UserProfile from "./UserProfile/UserProfile";
 import Cta from "./Cta/Cta";
 import "./Header.css";
-import logo from "../../assets/logo.svg";
 
 function Header() {
   const [userEmail, setUserEmail] = useState(null);
@@ -24,7 +23,7 @@ function Header() {
     <header className="sign-header">
       <h1 className="logo">
         <a href="/">
-          <img src={logo} alt="로고" />
+          <img src="/assets/logo.svg" alt="로고" />
         </a>
       </h1>
       {userEmail ? <UserProfile userEmail={userEmail} /> : <Cta />}

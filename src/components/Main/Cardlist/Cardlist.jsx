@@ -10,10 +10,9 @@ function Cardlist() {
     const fetchFolderDate = async () => {
       try {
         const data = await getFolderInfo();
-
         setLinks(data.folder.links);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
     fetchFolderDate();

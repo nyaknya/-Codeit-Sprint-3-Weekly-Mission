@@ -1,4 +1,3 @@
-import defalutimg from "../../../assets/defalutimg.png";
 import getElapsedTime from "../../../utils/calculateDate.js";
 import "./Card.css";
 
@@ -12,7 +11,7 @@ function Card({ data }) {
     <>
       <a href={url} target="_blank">
         <div className="card-imgbox">
-          <img src={imageSource ?? defalutimg} alt={title} />
+          <img src={imageSource ?? "/assets/defalutimg.png"} alt={title} />
         </div>
         <div className="card-content">
           <time className="time-ago" datatime={createdAt}>
