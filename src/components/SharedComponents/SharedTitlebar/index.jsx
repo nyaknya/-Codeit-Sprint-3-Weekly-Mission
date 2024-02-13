@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getFolderInfo } from "../../../utils/api";
-import "./SharedTitlebar.css";
+import "./style.css";
 
 function Titlebar() {
   const [profileImg, setProfileImg] = useState(null);
@@ -19,7 +19,7 @@ function Titlebar() {
       }
     };
     fetchFolderDate();
-  });
+  }, []);
 
   return (
     <section className="titlebar-container">

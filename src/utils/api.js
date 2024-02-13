@@ -12,4 +12,21 @@ async function getFolderInfo() {
   return result;
 }
 
-export { getUserInfo, getFolderInfo };
+async function getFolderUserInfo() {
+  const response = await fetch(`${API_BASE_URL}/users/1`);
+  const result = await response.json();
+  return result;
+}
+
+async function getFolderFilterKeywords() {
+  const response = await fetch(`${API_BASE_URL}/users/1/folders`);
+  const result = await response.json();
+  return result;
+}
+
+export {
+  getUserInfo,
+  getFolderInfo,
+  getFolderUserInfo,
+  getFolderFilterKeywords,
+};

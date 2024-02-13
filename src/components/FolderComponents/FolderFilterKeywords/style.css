@@ -1,0 +1,27 @@
+.filter-keywords-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-keywords-container img {
+  cursor: pointer;
+}
+
+.filter-keywords-list {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.filter-keywords-list li {
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid var(--color-primary);
+}

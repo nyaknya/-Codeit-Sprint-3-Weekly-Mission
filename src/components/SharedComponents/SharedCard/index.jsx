@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import getElapsedTime from "../../../utils/calculateDate.js";
-import "./SharedCard.css";
+import "./style.css";
 
 function Card({ data }) {
   const { title, description, url, imageSource, createdAt } = data;

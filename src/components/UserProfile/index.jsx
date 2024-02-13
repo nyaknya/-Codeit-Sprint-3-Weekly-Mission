@@ -1,10 +1,10 @@
-import "./UserProfile.css";
+import "./style.css";
 
-function UserProfile({ userEmail, userProfileImage }) {
+function UserProfile({ userEmail, userImage }) {
   return (
     <div className="header-user">
       <i className="profile-icon">
-        <img src={userProfileImage} alt="프로필 이미지" />
+        <img src={userImage} alt="프로필 이미지" />
       </i>
       {userEmail}
     </div>

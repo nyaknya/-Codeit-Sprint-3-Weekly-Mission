@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import SharedCard from "../SharedCard/SharedCard";
+import SharedCard from "../SharedCard";
 import { getFolderInfo } from "../../../utils/api";
-import "./SharedCardlist.css";
+import "./style.css";
 
 function Cardlist() {
   const [links, setLinks] = useState([]);
@@ -16,7 +16,7 @@ function Cardlist() {
       }
     };
     fetchFolderDate();
-  });
+  }, []);
 
   return (
     <section className="container">
