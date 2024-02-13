@@ -24,9 +24,23 @@ async function getFolderFilterKeywords() {
   return result;
 }
 
+async function getAllFolderLinks() {
+  const response = await fetch(`${API_BASE_URL}/users/1/links`);
+  const result = await response.json();
+  return result;
+}
+
+async function getFolderLinks(id) {
+  const response = await fetch(`${API_BASE_URL}/users/1/links?folderId=${id}`);
+  const result = await response.json();
+  return result;
+}
+
 export {
   getUserInfo,
   getFolderInfo,
   getFolderUserInfo,
   getFolderFilterKeywords,
+  getAllFolderLinks,
+  getFolderLinks,
 };
