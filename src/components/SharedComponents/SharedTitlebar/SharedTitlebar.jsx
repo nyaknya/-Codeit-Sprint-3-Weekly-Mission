@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getFolderInfo } from "../../utils/api";
-import "./Titlebar.css";
+import { getFolderInfo } from "../../../utils/api";
+import "./SharedTitlebar.css";
 
 function Titlebar() {
   const [profileImg, setProfileImg] = useState(null);

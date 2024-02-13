@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Card from "../Card/Card";
-import { getFolderInfo } from "../../utils/api";
-import "./Cardlist.css";
+import SharedCard from "../SharedCard/SharedCard";
+import { getFolderInfo } from "../../../utils/api";
+import "./SharedCardlist.css";
 
 function Cardlist() {
   const [links, setLinks] = useState([]);
@@ -24,7 +24,7 @@ function Cardlist() {
         {links.map((data) => {
           return (
             <li className="card" key={data.id}>
-              <Card data={data} key={data.id} />
+              <SharedCard data={data} key={data.id} />
             </li>
           );
         })}
