@@ -4,30 +4,6 @@
   gap: 1.25em;
 }
 
-.utils-area {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-}
-
-.utils-area h2 {
-  font-size: 24px;
-}
-
-.utils-area ul {
-  display: flex;
-  gap: 12px;
-}
-
-.utils-area ul li {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--color-gray60);
-  cursor: pointer;
-}
-
 @media (max-width: 1124px) {
   .cardlist {
     grid-template-columns: 1fr 1fr;
