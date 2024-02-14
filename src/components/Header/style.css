@@ -3,7 +3,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 12.5rem;
+  padding: 20px 200px;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -16,6 +16,6 @@ header .cta {
 
 @media (min-width: 375px) and (max-width: 767px) {
   header {
-    padding: 0.8125rem 2rem;
+    padding: 13px 32px;
   }
 }
