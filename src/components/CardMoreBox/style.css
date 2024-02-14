@@ -1,0 +1,20 @@
+.kebab-more-box {
+  position: absolute;
+  z-index: 10;
+  width: 100px;
+  text-align: center;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+}
+
+.kebab-more-box ul li {
+  padding: 8px 0;
+  font-size: 14px;
+  background: #fff;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+
+.kebab-more-box ul li:hover {
+  color: var(--color-primary);
+  background: var(--color-gray20);
+}

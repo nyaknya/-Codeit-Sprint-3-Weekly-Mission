@@ -1,6 +1,5 @@
 .card {
   border-radius: 0.625rem;
-  overflow: hidden;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
@@ -13,7 +12,7 @@
   overflow: hidden;
 }
 
-.card img {
+.card .card-imgbox img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -21,7 +20,7 @@
   transition: 0.3s all;
 }
 
-.card img:hover {
+.card .card-imgbox img:hover {
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
 }
