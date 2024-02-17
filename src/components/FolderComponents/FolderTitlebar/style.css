@@ -46,7 +46,7 @@
 }
 
 .addlink-box button {
-  width: 80px;
+  width: 110px;
   height: 36px;
   border-radius: 8px;
   background: linear-gradient(
@@ -59,4 +59,11 @@
   padding: 10px;
   font-size: 14px;
   color: #fff;
+}
+
+/* 모바일 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .titlebar-container .container {
+    padding: 0;
+  }
 }

@@ -33,7 +33,12 @@ function FolderFilterKeyword({
               </li>
             ))}
         </ul>
-        <img src="/assets/add.svg" alt="Add" />
+        <div className="folder-add ">
+          <img src="/assets/add.svg" alt="Add" className="mobile-blind" />
+          <div className="folder-add-floating pc-blind tablet-blind">
+            <span>폴더 추가</span> <img src="/assets/add.svg" alt="" />
+          </div>
+        </div>
       </div>
 
       <div className="utils-area container">
@@ -49,7 +54,7 @@ function FolderFilterKeyword({
               <span>이름 변경</span>
             </li>
             <li>
-              <img src="/assets/delete.svg" alt="삭제 아이콘" />{" "}
+              <img src="/assets/delete.svg" alt="삭제 아이콘" />
               <span>삭제</span>
             </li>
           </ul>

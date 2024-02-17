@@ -6,7 +6,7 @@ function UserProfile({ userEmail, userImage }) {
       <i className="profile-icon">
         <img src={userImage} alt="프로필 이미지" />
       </i>
-      {userEmail}
+      <span className="mobile-blind">{userEmail}</span>
     </div>
   );
 }

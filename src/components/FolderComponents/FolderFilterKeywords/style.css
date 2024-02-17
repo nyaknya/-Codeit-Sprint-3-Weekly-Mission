@@ -58,8 +58,40 @@
   cursor: pointer;
 }
 
+.folder-add-floating {
+  display: none;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed;
+  left: 50%;
+  bottom: 101px;
+  transform: translateX(-50%);
+  z-index: 999;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 30px;
+}
+
+.folder-add-floating img {
+  filter: brightness(100);
+}
+
 @media (max-width: 1199px) {
   .container.filter-keywords-list {
     padding: 0;
+  }
+}
+
+/* 모바일 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .utils-area {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .folder-add-floating {
+    display: flex;
   }
 }

@@ -55,7 +55,8 @@ li {
   box-sizing: border-box;
 }
 
-.pc-blind {
+.pc-blind,
+.tablet-blind {
   display: none;
 }
 
@@ -63,6 +64,10 @@ li {
 @media (max-width: 1199px) {
   .pc-blind {
     display: unset;
+  }
+
+  .tablet-blind {
+    display: none;
   }
 
   .container {
@@ -79,6 +84,14 @@ li {
 
 /* 모바일 */
 @media (min-width: 375px) and (max-width: 767px) {
+  .tablet-blind {
+    display: unset;
+  }
+
+  .mobile-blind {
+    display: none;
+  }
+
   .cta {
     padding: 0.625rem 1rem;
     font-size: 0.875rem;

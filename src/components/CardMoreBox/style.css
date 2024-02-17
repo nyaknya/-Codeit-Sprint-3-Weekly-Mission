@@ -18,3 +18,10 @@
   color: var(--color-primary);
   background: var(--color-gray20);
 }
+
+/* 모바일 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .kebab-more-box {
+    right: -2px;
+  }
+}
