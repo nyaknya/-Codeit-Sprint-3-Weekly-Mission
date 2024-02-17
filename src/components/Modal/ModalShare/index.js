@@ -29,7 +29,7 @@ const ModalContainer = styled.div`
     padding: 32px 40px 50px;
     gap: 18px;
     border-radius: 15px;
-    z-index: 2;
+    z-index: 99999;
 
     & > p {
       color: var(--color-gray40);
@@ -88,6 +88,7 @@ const ModalContainer = styled.div`
     top: 16px;
     outline: 0;
     border: 0;
+    border-radius: 50%;
   }
 `;
 

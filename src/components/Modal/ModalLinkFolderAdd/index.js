@@ -23,10 +23,14 @@ const ModalContainer = styled.div`
     justify-content: center;
     align-items: center;
     background-color: white;
-    padding: 32px 40px;
-    gap: 24px;
+    padding: 32px 40px 50px;
+    gap: 18px;
     border-radius: 15px;
     z-index: 99999;
+
+    & > p {
+      color: var(--color-gray40);
+    }
   }
 
   h3 {
@@ -85,15 +89,29 @@ const ModalContainer = styled.div`
   }
 `;
 
-const ModalAdd = ({ onClick }) => {
+const ModalLinkFolderAdd = ({ onClick, url }) => {
   return (
     <ModalContainer>
       <div className="Modal-wrapper">
         <button className="Modal-close" onClick={onClick}>
           <img src="/assets/close.svg" alt="닫기 버튼" />
         </button>
-        <h3 className="Modal-title">폴더 추가</h3>
-        <input className="Modal-input" placeholder="내용 입력" type="text" />
+        <h3 className="Modal-title">폴더에 추가</h3>
+        <p>{url}</p>
+        <ul>
+          <li>
+            <h3></h3>
+          </li>
+          <li>
+            <h3></h3>
+          </li>
+          <li>
+            <h3></h3>
+          </li>
+          <li>
+            <h3></h3>
+          </li>
+        </ul>
         <button className="Modal-button">추가하기</button>
       </div>
       <ModalBackground />
@@ -101,4 +119,4 @@ const ModalAdd = ({ onClick }) => {
   );
 };
 
-export default ModalAdd;
+export default ModalLinkFolderAdd;

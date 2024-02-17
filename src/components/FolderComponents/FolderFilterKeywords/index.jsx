@@ -2,6 +2,7 @@ import { useState } from "react";
 import ModalEdit from "../../Modal/ModalEdit";
 import ModalAdd from "../../Modal/ModalAdd";
 import ModalShare from "../../Modal/ModalShare";
+import ModalFolderDelete from "../../Modal/ModalFolderDelete";
 import "./style.css";
 
 function FolderFilterKeyword({
@@ -14,6 +15,7 @@ function FolderFilterKeyword({
   const [modalEdit, setModalEdit] = useState(false);
   const [modalAdd, setModalAdd] = useState(false);
   const [modalShare, setModalShare] = useState(false);
+  const [modalFolderDelete, setModalFolderDelete] = useState(false);
   const { name: selectedName } = selectedKeyword;
 
   const handleModalEditOnButtonClick = (e) => {
@@ -28,10 +30,15 @@ function FolderFilterKeyword({
     setModalShare(true);
   };
 
+  const handleModalFolderDeleteOnButtonClick = (e) => {
+    setModalFolderDelete(true);
+  };
+
   const handleCloseButtonClick = (e) => {
     setModalEdit(false);
     setModalAdd(false);
     setModalShare(false);
+    setModalFolderDelete(false);
   };
 
   return (
@@ -45,6 +52,13 @@ function FolderFilterKeyword({
           userInfo={userInfo}
         />
       ) : null}
+      {modalFolderDelete ? (
+        <ModalFolderDelete
+          onClick={handleCloseButtonClick}
+          selectedKeyword={selectedKeyword}
+        />
+      ) : null}
+
       <section className="filter-container">
         <div className="filter-keywords-container container">
           <ul className="filter-keywords-list">
@@ -89,7 +103,7 @@ function FolderFilterKeyword({
                 <img src="/assets/pen.svg" alt="이름 변경 아이콘" />
                 <span>이름 변경</span>
               </li>
-              <li>
+              <li onClick={handleModalFolderDeleteOnButtonClick}>
                 <img src="/assets/delete.svg" alt="삭제 아이콘" />
                 <span>삭제</span>
               </li>

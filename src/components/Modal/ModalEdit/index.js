@@ -26,7 +26,7 @@ const ModalContainer = styled.div`
     padding: 32px 40px;
     gap: 24px;
     border-radius: 15px;
-    z-index: 2;
+    z-index: 99999;
   }
 
   h3 {
@@ -81,6 +81,7 @@ const ModalContainer = styled.div`
     top: 16px;
     outline: 0;
     border: 0;
+    border-radius: 50%;
   }
 `;
 

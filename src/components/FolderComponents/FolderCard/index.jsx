@@ -49,7 +49,7 @@ function Card({ links }) {
                 alt="더보기 버튼"
                 onClick={handleKebabVisible}
               />
-              {kebabVisible ? <CardMoreBox /> : null}
+              {kebabVisible ? <CardMoreBox url={url} /> : null}
             </div>
           </div>
 

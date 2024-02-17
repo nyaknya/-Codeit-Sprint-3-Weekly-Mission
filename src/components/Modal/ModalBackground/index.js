@@ -9,11 +9,18 @@ const ModalBackgroundOverlay = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 999;
+  cursor: default;
 `;
 
 const ModalBackground = () => {
-  return <ModalBackgroundOverlay />;
+  return (
+    <ModalBackgroundOverlay
+      onClick={(e) => {
+        e.preventDefault();
+      }}
+    />
+  );
 };
 
 export default ModalBackground;

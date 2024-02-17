@@ -23,10 +23,14 @@ const ModalContainer = styled.div`
     justify-content: center;
     align-items: center;
     background-color: white;
-    padding: 32px 40px;
-    gap: 24px;
+    padding: 32px 40px 50px;
+    gap: 18px;
     border-radius: 15px;
     z-index: 99999;
+
+    & > p {
+      color: var(--color-gray40);
+    }
   }
 
   h3 {
@@ -51,10 +55,7 @@ const ModalContainer = styled.div`
 
     border: none;
     border-radius: 8px;
-    background: var(
-      --gra-purpleblue-to-skyblue,
-      linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
-    );
+    background: var(--color-red);
     color: #fff;
   }
 
@@ -85,20 +86,20 @@ const ModalContainer = styled.div`
   }
 `;
 
-const ModalAdd = ({ onClick }) => {
+const ModalFolderDelete = ({ onClick, selectedKeyword }) => {
   return (
     <ModalContainer>
       <div className="Modal-wrapper">
         <button className="Modal-close" onClick={onClick}>
           <img src="/assets/close.svg" alt="닫기 버튼" />
         </button>
-        <h3 className="Modal-title">폴더 추가</h3>
-        <input className="Modal-input" placeholder="내용 입력" type="text" />
-        <button className="Modal-button">추가하기</button>
+        <h3 className="Modal-title">폴더 삭제</h3>
+        <p>{selectedKeyword.name}</p>
+        <button className="Modal-button">삭제하기</button>
       </div>
       <ModalBackground />
     </ModalContainer>
   );
 };
 
-export default ModalAdd;
+export default ModalFolderDelete;
