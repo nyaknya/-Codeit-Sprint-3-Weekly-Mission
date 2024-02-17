@@ -1,4 +1,7 @@
 import ModalBackground from "../ModalBackground";
+import CopyClipBoardButton from "./CopyClipBoardButton";
+import KakaoShareButton from "./KakaoShareButton";
+import FacebookShareButton from "./FacebookShareButton";
 import styled from "styled-components";
 
 const ModalContainer = styled.div`
@@ -13,7 +16,7 @@ const ModalContainer = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
 
-  .ModalEdit-wrapper {
+  .Modal-wrapper {
     display: flex;
     position: relative;
     width: 100%;
@@ -23,10 +26,14 @@ const ModalContainer = styled.div`
     justify-content: center;
     align-items: center;
     background-color: white;
-    padding: 32px 40px;
-    gap: 24px;
+    padding: 32px 40px 50px;
+    gap: 18px;
     border-radius: 15px;
     z-index: 2;
+
+    & > p {
+      color: var(--color-gray40);
+    }
   }
 
   h3 {
@@ -39,7 +46,7 @@ const ModalContainer = styled.div`
     text-align: center;
   }
 
-  .ModalEdit-button {
+  .Modal-button {
     color: var(--white);
     display: flex;
     width: 280px;
@@ -58,7 +65,7 @@ const ModalContainer = styled.div`
     color: #fff;
   }
 
-  .ModalEdit-input {
+  .Modal-input {
     display: flex;
     width: 280px;
     padding: 18px 15px;
@@ -75,7 +82,7 @@ const ModalContainer = styled.div`
     }
   }
 
-  .ModalEdit-close {
+  .Modal-close {
     position: absolute;
     right: 16px;
     top: 16px;
@@ -84,24 +91,37 @@ const ModalContainer = styled.div`
   }
 `;
 
-const ModalEdit = ({ onClick }) => {
+const ShareButtonBarContainer = styled.div`
+  display: flex;
+  gap: 20px;
+
+  p {
+    font-size: 13px;
+    padding-top: 10px;
+    white-space: nowrap;
+  }
+`;
+
+const ModalShare = ({ onClick, selectedKeyword, userInfo }) => {
+  const share_url = `https://weekly-mission-part2.vercel.app/shared?user=${userInfo.id}&folder=${selectedKeyword.id}`;
+
   return (
     <ModalContainer>
-      <div className="ModalEdit-wrapper">
-        <button className="ModalEdit-close" onClick={onClick}>
+      <div className="Modal-wrapper">
+        <button className="Modal-close" onClick={onClick}>
           <img src="/assets/close.svg" alt="닫기 버튼" />
         </button>
-        <h3 className="ModalEdit-title">폴더 이름 변경</h3>
-        <input
-          className="ModalEdit-input"
-          placeholder="내용 입력"
-          type="text"
-        />
-        <button className="ModalEdit-button">변경하기</button>
+        <h3 className="Modal-title">폴더 공유</h3>
+        <p>{selectedKeyword.name}</p>
+        <ShareButtonBarContainer>
+          <KakaoShareButton share_url={share_url} />
+          <FacebookShareButton share_url={share_url} />
+          <CopyClipBoardButton share_url={share_url} />
+        </ShareButtonBarContainer>
       </div>
       <ModalBackground />
     </ModalContainer>
   );
 };
 
-export default ModalEdit;
+export default ModalShare;

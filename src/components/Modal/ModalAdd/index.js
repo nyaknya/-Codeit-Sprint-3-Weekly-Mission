@@ -13,7 +13,7 @@ const ModalContainer = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
 
-  .ModalEdit-wrapper {
+  .Modal-wrapper {
     display: flex;
     position: relative;
     width: 100%;
@@ -39,7 +39,7 @@ const ModalContainer = styled.div`
     text-align: center;
   }
 
-  .ModalEdit-button {
+  .Modal-button {
     color: var(--white);
     display: flex;
     width: 280px;
@@ -58,7 +58,7 @@ const ModalContainer = styled.div`
     color: #fff;
   }
 
-  .ModalEdit-input {
+  .Modal-input {
     display: flex;
     width: 280px;
     padding: 18px 15px;
@@ -75,7 +75,7 @@ const ModalContainer = styled.div`
     }
   }
 
-  .ModalEdit-close {
+  .Modal-close {
     position: absolute;
     right: 16px;
     top: 16px;
@@ -84,24 +84,20 @@ const ModalContainer = styled.div`
   }
 `;
 
-const ModalEdit = ({ onClick }) => {
+const ModalAdd = ({ onClick }) => {
   return (
     <ModalContainer>
-      <div className="ModalEdit-wrapper">
-        <button className="ModalEdit-close" onClick={onClick}>
+      <div className="Modal-wrapper">
+        <button className="Modal-close" onClick={onClick}>
           <img src="/assets/close.svg" alt="닫기 버튼" />
         </button>
-        <h3 className="ModalEdit-title">폴더 이름 변경</h3>
-        <input
-          className="ModalEdit-input"
-          placeholder="내용 입력"
-          type="text"
-        />
-        <button className="ModalEdit-button">변경하기</button>
+        <h3 className="Modal-title">폴더 추가</h3>
+        <input className="Modal-input" placeholder="내용 입력" type="text" />
+        <button className="Modal-button">추가하기</button>
       </div>
       <ModalBackground />
     </ModalContainer>
   );
 };
 
-export default ModalEdit;
+export default ModalAdd;

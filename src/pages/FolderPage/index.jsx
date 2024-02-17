@@ -26,7 +26,7 @@ function FolderPage() {
     <>
       <Header userInfo={userInfo} />
       <FolderTitlebar />
-      <FolderContent />
+      <FolderContent userInfo={userInfo} />
       <Footer />
     </>
   );

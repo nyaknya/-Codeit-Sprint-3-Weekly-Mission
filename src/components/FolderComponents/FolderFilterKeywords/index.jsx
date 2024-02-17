@@ -1,5 +1,7 @@
 import { useState } from "react";
 import ModalEdit from "../../Modal/ModalEdit";
+import ModalAdd from "../../Modal/ModalAdd";
+import ModalShare from "../../Modal/ModalShare";
 import "./style.css";
 
 function FolderFilterKeyword({
@@ -7,21 +9,42 @@ function FolderFilterKeyword({
   selectedKeyword,
   handleAllKeywordsClick,
   handleKeywordsClick,
+  userInfo,
 }) {
   const [modalEdit, setModalEdit] = useState(false);
+  const [modalAdd, setModalAdd] = useState(false);
+  const [modalShare, setModalShare] = useState(false);
   const { name: selectedName } = selectedKeyword;
 
-  const handleModalOnButtonClick = (e) => {
+  const handleModalEditOnButtonClick = (e) => {
     setModalEdit(true);
+  };
+
+  const handleModalAddOnButtonClick = (e) => {
+    setModalAdd(true);
+  };
+
+  const handleModalShareOnButtonClick = (e) => {
+    setModalShare(true);
   };
 
   const handleCloseButtonClick = (e) => {
     setModalEdit(false);
+    setModalAdd(false);
+    setModalShare(false);
   };
 
   return (
     <>
       {modalEdit ? <ModalEdit onClick={handleCloseButtonClick} /> : null}
+      {modalAdd ? <ModalAdd onClick={handleCloseButtonClick} /> : null}
+      {modalShare ? (
+        <ModalShare
+          onClick={handleCloseButtonClick}
+          selectedKeyword={selectedKeyword}
+          userInfo={userInfo}
+        />
+      ) : null}
       <section className="filter-container">
         <div className="filter-keywords-container container">
           <ul className="filter-keywords-list">
@@ -46,7 +69,7 @@ function FolderFilterKeyword({
                 </li>
               ))}
           </ul>
-          <div className="folder-add ">
+          <div className="folder-add" onClick={handleModalAddOnButtonClick}>
             <img src="/assets/add.svg" alt="Add" className="mobile-blind" />
             <div className="folder-add-floating pc-blind tablet-blind">
               <span>폴더 추가</span> <img src="/assets/add.svg" alt="" />
@@ -56,13 +79,13 @@ function FolderFilterKeyword({
 
         <div className="utils-area container">
           <h2>{selectedName ?? selectedKeyword}</h2>
-          {selectedName === "전체" ? null : (
+          {selectedKeyword === "전체" ? null : (
             <ul>
-              <li>
+              <li onClick={handleModalShareOnButtonClick}>
                 <img src="/assets/share.svg" alt="공유 버튼 아이콘" />
                 <span>공유</span>
               </li>
-              <li onClick={handleModalOnButtonClick}>
+              <li onClick={handleModalEditOnButtonClick}>
                 <img src="/assets/pen.svg" alt="이름 변경 아이콘" />
                 <span>이름 변경</span>
               </li>

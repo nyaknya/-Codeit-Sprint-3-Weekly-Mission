@@ -5,7 +5,7 @@ import FolderFilterKeyword from "../FolderFilterKeywords";
 import FolderCardlist from "../FolderCardlist";
 import "./style.css";
 
-function Main() {
+function Main({ userInfo }) {
   const [keywords, setKeywords] = useState({ data: [] });
   const [selectedKeyword, setSelectedKeyword] = useState("전체");
 
@@ -37,6 +37,7 @@ function Main() {
       <FolderFilterKeyword
         keywords={keywords}
         selectedKeyword={selectedKeyword}
+        userInfo={userInfo}
         handleAllKeywordsClick={handleAllKeywordsClick}
         handleKeywordsClick={handleKeywordsClick}
       />
