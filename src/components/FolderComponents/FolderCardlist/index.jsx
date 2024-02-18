@@ -3,7 +3,7 @@ import FolderCard from "../FolderCard";
 import { getAllFolderLinks, getFolderLinks } from "../../../utils/api";
 import "./style.css";
 
-function FolderCardlist({ selectedKeyword }) {
+function FolderCardlist({ selectedKeyword, keywords }) {
   const [links, setLinks] = useState([]);
 
   const { id: selectedId } = selectedKeyword;
@@ -41,7 +41,7 @@ function FolderCardlist({ selectedKeyword }) {
           links.map((links) => {
             return (
               <li className="card" key={links.id}>
-                <FolderCard links={links} key={links.id} />
+                <FolderCard links={links} key={links.id} keywords={keywords} />
               </li>
             );
           })

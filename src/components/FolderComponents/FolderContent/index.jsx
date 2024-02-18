@@ -41,7 +41,7 @@ function Main({ userInfo }) {
         handleAllKeywordsClick={handleAllKeywordsClick}
         handleKeywordsClick={handleKeywordsClick}
       />
-      <FolderCardlist selectedKeyword={selectedKeyword} />
+      <FolderCardlist keywords={keywords} selectedKeyword={selectedKeyword} />
     </main>
   );
 }

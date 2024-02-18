@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ModalBackground from "../ModalBackground";
 import styled from "styled-components";
 
@@ -8,7 +9,7 @@ const ModalContainer = styled.div`
   width: 100%;
   height: 100%;
   position: fixed;
-  z-index: 999;
+  z-index: 99999;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -18,7 +19,7 @@ const ModalContainer = styled.div`
     position: relative;
     width: 100%;
     max-width: 360px;
-    max-height: 239px;
+    min-height: 239px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -30,6 +31,34 @@ const ModalContainer = styled.div`
 
     & > p {
       color: var(--color-gray40);
+    }
+
+    ul {
+      width: 280px;
+
+      li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 8px;
+
+        p {
+          color: var(--color-gray60);
+          font-size: 14px;
+        }
+      }
+
+      li.selected {
+        background: url(/assets/check.svg) no-repeat right 20px center
+          var(--color-gray20);
+      }
+
+      h3 {
+        font-size: 16px;
+        font-weight: 400;
+      }
     }
   }
 
@@ -89,7 +118,15 @@ const ModalContainer = styled.div`
   }
 `;
 
-const ModalLinkFolderAdd = ({ onClick, url }) => {
+const ModalLinkFolderAdd = ({ onClick, url, keywords }) => {
+  const [folderSelected, setfolderSelected] = useState("");
+
+  const handleFolderSelected = (e, keywordName) => {
+    e.preventDefault();
+    console.log(keywordName);
+    setfolderSelected(keywordName);
+  };
+
   return (
     <ModalContainer>
       <div className="Modal-wrapper">
@@ -99,18 +136,21 @@ const ModalLinkFolderAdd = ({ onClick, url }) => {
         <h3 className="Modal-title">폴더에 추가</h3>
         <p>{url}</p>
         <ul>
-          <li>
-            <h3></h3>
-          </li>
-          <li>
-            <h3></h3>
-          </li>
-          <li>
-            <h3></h3>
-          </li>
-          <li>
-            <h3></h3>
-          </li>
+          {keywords.data &&
+            keywords.data.map((keyword) => {
+              return (
+                <li
+                  key={keyword.id}
+                  className={`${
+                    folderSelected === keyword.name ? "selected" : ""
+                  }`}
+                  onClick={(e) => handleFolderSelected(e, keyword.name)}
+                >
+                  <h3>{keyword.name}</h3>
+                  <p>{keyword.link.count}개 링크</p>
+                </li>
+              );
+            })}
         </ul>
         <button className="Modal-button">추가하기</button>
       </div>

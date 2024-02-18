@@ -3,7 +3,7 @@ import ModalLinkDelete from "../Modal/ModalLinkDelete";
 import ModalLinkFolderAdd from "../Modal/ModalLinkFolderAdd";
 import "./style.css";
 
-function CardMoreBox({ url }) {
+function CardMoreBox({ url, keywords }) {
   const [modalLinkDelete, setModalLinkDelete] = useState(false);
   const [modalLinkFolderAdd, setModalLinkFolderAdd] = useState(false);
 
@@ -20,7 +20,7 @@ function CardMoreBox({ url }) {
   const handleCloseButtonClick = (e) => {
     e.preventDefault();
     setModalLinkDelete(false);
-    setModalLinkFolderAdd(true);
+    setModalLinkFolderAdd(false);
   };
 
   return (
@@ -29,7 +29,11 @@ function CardMoreBox({ url }) {
         <ModalLinkDelete onClick={handleCloseButtonClick} url={url} />
       ) : null}
       {modalLinkFolderAdd ? (
-        <ModalLinkFolderAdd onClick={handleCloseButtonClick} url={url} />
+        <ModalLinkFolderAdd
+          onClick={handleCloseButtonClick}
+          url={url}
+          keywords={keywords}
+        />
       ) : null}
       <div className="kebab-more-box">
         <ul>

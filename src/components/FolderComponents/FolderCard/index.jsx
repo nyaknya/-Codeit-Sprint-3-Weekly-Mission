@@ -4,7 +4,7 @@ import getElapsedTime from "../../../utils/calculateDate.js";
 import "./style.css";
 import { useEffect, useRef, useState } from "react";
 
-function Card({ links }) {
+function Card({ links, keywords }) {
   const [kebabVisible, setKebabVisible] = useState(false);
 
   const dropDownRef = useRef();
@@ -44,12 +44,14 @@ function Card({ links }) {
               {timeAgo}
             </time>
             <div className="more-box" ref={dropDownRef}>
+              {kebabVisible ? (
+                <CardMoreBox url={url} keywords={keywords} />
+              ) : null}
               <img
                 src="/assets/kebab.svg"
                 alt="더보기 버튼"
                 onClick={handleKebabVisible}
               />
-              {kebabVisible ? <CardMoreBox url={url} /> : null}
             </div>
           </div>
 
