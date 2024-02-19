@@ -16,3 +16,10 @@ main {
 .search-keyword span {
   color: var(--color-gray80);
 }
+
+/* 모바일 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .search-keyword {
+    font-size: 24px;
+  }
+}

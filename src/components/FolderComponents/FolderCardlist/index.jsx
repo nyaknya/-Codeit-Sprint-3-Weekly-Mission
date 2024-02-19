@@ -35,6 +35,8 @@ function FolderCardlist({ selectedKeyword, keywords, searchKeyword }) {
   }, [selectedId]);
 
   const isMatchSearchKeyword = (link) => {
+    const { url, title, description } = link;
+
     if (!searchKeyword) {
       return true;
     }
@@ -43,15 +45,13 @@ function FolderCardlist({ selectedKeyword, keywords, searchKeyword }) {
       return false;
     }
 
-    const urlMatch = link.url
-      .toUpperCase()
-      .includes(searchKeyword.toUpperCase());
-    const titleMatch = link.title
-      .toUpperCase()
-      .includes(searchKeyword.toUpperCase());
-    const descriptionMatch = link.description
-      .toUpperCase()
-      .includes(searchKeyword.toUpperCase());
+    const urlMatch =
+      url && url.toUpperCase().includes(searchKeyword.toUpperCase());
+    const titleMatch =
+      title && title.toUpperCase().includes(searchKeyword.toUpperCase());
+    const descriptionMatch =
+      description &&
+      description.toUpperCase().includes(searchKeyword.toUpperCase());
 
     return urlMatch || titleMatch || descriptionMatch;
   };
