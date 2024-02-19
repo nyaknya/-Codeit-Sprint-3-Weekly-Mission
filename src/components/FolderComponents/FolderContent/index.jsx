@@ -8,6 +8,7 @@ import "./style.css";
 function Main({ userInfo }) {
   const [keywords, setKeywords] = useState({ data: [] });
   const [selectedKeyword, setSelectedKeyword] = useState("전체");
+  const [searchKeyword, setSearchKeyword] = useState();
 
   useEffect(() => {
     const fetchFolderKeywords = async () => {
@@ -27,13 +28,23 @@ function Main({ userInfo }) {
   };
 
   const handleKeywordsClick = (keyword) => {
-    const clickedKeyword = keyword;
-    setSelectedKeyword(clickedKeyword);
+    setSelectedKeyword(keyword);
+  };
+
+  const handleSearchKeywordChange = (changeSearchKeyword) => {
+    setSearchKeyword(changeSearchKeyword);
   };
 
   return (
     <main>
-      <Searchbar />
+      <Searchbar getSearchKeyword={handleSearchKeywordChange} />
+      {searchKeyword && (
+        <div className="container">
+          <h3 className="search-keyword">
+            <span>{searchKeyword}</span>으로 검색한 결과입니다.
+          </h3>
+        </div>
+      )}
       <FolderFilterKeyword
         keywords={keywords}
         selectedKeyword={selectedKeyword}
@@ -41,7 +52,11 @@ function Main({ userInfo }) {
         handleAllKeywordsClick={handleAllKeywordsClick}
         handleKeywordsClick={handleKeywordsClick}
       />
-      <FolderCardlist keywords={keywords} selectedKeyword={selectedKeyword} />
+      <FolderCardlist
+        keywords={keywords}
+        selectedKeyword={selectedKeyword}
+        searchKeyword={searchKeyword}
+      />
     </main>
   );
 }

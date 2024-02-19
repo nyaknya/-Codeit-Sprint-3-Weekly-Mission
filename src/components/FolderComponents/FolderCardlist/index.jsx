@@ -3,7 +3,7 @@ import FolderCard from "../FolderCard";
 import { getAllFolderLinks, getFolderLinks } from "../../../utils/api";
 import "./style.css";
 
-function FolderCardlist({ selectedKeyword, keywords }) {
+function FolderCardlist({ selectedKeyword, keywords, searchKeyword }) {
   const [links, setLinks] = useState([]);
 
   const { id: selectedId } = selectedKeyword;
@@ -11,7 +11,7 @@ function FolderCardlist({ selectedKeyword, keywords }) {
   const fetchAllFolderDate = async () => {
     try {
       const folderAllLinks = await getAllFolderLinks();
-      setLinks(folderAllLinks.data);
+      setLinks(folderAllLinks.data || []);
     } catch (error) {
       console.error(error);
     }
@@ -20,7 +20,7 @@ function FolderCardlist({ selectedKeyword, keywords }) {
   const fetchFolderDate = async () => {
     try {
       const folderLinks = await getFolderLinks(selectedId);
-      setLinks(folderLinks);
+      setLinks(folderLinks || []);
     } catch (error) {
       console.error(error);
     }
@@ -34,16 +34,41 @@ function FolderCardlist({ selectedKeyword, keywords }) {
     }
   }, [selectedId]);
 
+  const isMatchSearchKeyword = (link) => {
+    if (!searchKeyword) {
+      return true;
+    }
+
+    if (!link) {
+      return false;
+    }
+
+    const urlMatch =
+      link.url && link.url.toUpperCase().includes(searchKeyword.toUpperCase());
+    const titleMatch =
+      link.title &&
+      link.title.toUpperCase().includes(searchKeyword.toUpperCase());
+    const descriptionMatch =
+      link.description &&
+      link.description.toUpperCase().includes(searchKeyword.toUpperCase());
+
+    return urlMatch || titleMatch || descriptionMatch;
+  };
+
   return (
     <section className="container">
       <ul className="cardlist">
         {links.length ? (
-          links.map((links) => {
-            return (
-              <li className="card" key={links.id}>
-                <FolderCard links={links} key={links.id} keywords={keywords} />
-              </li>
-            );
+          links.map((link) => {
+            if (isMatchSearchKeyword(link)) {
+              return (
+                <li className="card" key={link.id}>
+                  <FolderCard links={link} key={link.id} keywords={keywords} />
+                </li>
+              );
+            } else {
+              return null;
+            }
           })
         ) : (
           <li className="empty-links">저장된 링크가 없습니다.</li>

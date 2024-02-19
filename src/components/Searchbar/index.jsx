@@ -1,8 +1,9 @@
-import { useState } from "react";
 import "./style.css";
 
-function Searchbar() {
-  const [searchKeyword, setSearchKeyword] = useState();
+function Searchbar({ getSearchKeyword }) {
+  const handleInputOnChange = (e) => {
+    getSearchKeyword(e.currentTarget.value);
+  };
 
   return (
     <section className="container searchbar-container">
@@ -10,7 +11,7 @@ function Searchbar() {
         type="text"
         placeholder="링크를 검색해 보세요."
         className="search-input"
-        value={searchKeyword}
+        onChange={handleInputOnChange}
       />
     </section>
   );

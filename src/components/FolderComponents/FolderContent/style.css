@@ -5,3 +5,14 @@ header {
 main {
   padding-bottom: 6.25rem;
 }
+
+.search-keyword {
+  font-weight: 600;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: var(--color-gray60);
+}
+
+.search-keyword span {
+  color: var(--color-gray80);
+}
