@@ -43,14 +43,15 @@ function FolderCardlist({ selectedKeyword, keywords, searchKeyword }) {
       return false;
     }
 
-    const urlMatch =
-      link.url && link.url.toUpperCase().includes(searchKeyword.toUpperCase());
-    const titleMatch =
-      link.title &&
-      link.title.toUpperCase().includes(searchKeyword.toUpperCase());
-    const descriptionMatch =
-      link.description &&
-      link.description.toUpperCase().includes(searchKeyword.toUpperCase());
+    const urlMatch = link.url
+      .toUpperCase()
+      .includes(searchKeyword.toUpperCase());
+    const titleMatch = link.title
+      .toUpperCase()
+      .includes(searchKeyword.toUpperCase());
+    const descriptionMatch = link.description
+      .toUpperCase()
+      .includes(searchKeyword.toUpperCase());
 
     return urlMatch || titleMatch || descriptionMatch;
   };
