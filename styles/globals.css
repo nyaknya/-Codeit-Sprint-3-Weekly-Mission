@@ -51,15 +51,9 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
 .container {
   position: relative;
-  max-width: 62.375rem;
+  max-width: 998px;
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
@@ -86,7 +80,7 @@ a {
 
 @media all and (min-width: 768px) and (max-width: 1199px) {
   .container {
-    max-width: 43.625rem;
+    max-width: 698px;
   }
 }
 
@@ -100,7 +94,7 @@ a {
   }
 
   .cta {
-    padding: 10px 16p;
+    padding: 10px 16px;
     font-size: 0.875rem;
   }
 }

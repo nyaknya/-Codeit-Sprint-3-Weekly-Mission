@@ -16,17 +16,17 @@ export interface UserProfileData {
 export default function Header() {
   const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
 
-  const fetchUserData = async () => {
+  const loadUserProfile = async () => {
     try {
-      const userData = await getUserProfile();
-      setUserProfile(userData);
+      const userProfile = await getUserProfile();
+      setUserProfile(userProfile);
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    fetchUserData();
+    loadUserProfile();
   }, []);
 
   // null일경우 타입 오류 처리
