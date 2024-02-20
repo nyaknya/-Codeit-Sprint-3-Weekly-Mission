@@ -1,14 +1,17 @@
 import { useState } from "react";
 import Searchbar from "@/components/Searchbar";
-// import SharedCardlist from "../SharedCardlist";
-import styles from "./style.module.css";
+import Cardlist from "@/components/Cardlist";
 import SearchKeywordResult from "@/components/SearchKeywordResult";
+import { FolderLinksData } from "@/pages/shared";
 
-function SharedContent() {
+interface SharedContentProps {
+  links: FolderLinksData;
+}
+
+function SharedContent({ links }: SharedContentProps) {
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const handleSearchKeywordChange = (changeSearchKeyword: string) => {
-    console.log(changeSearchKeyword);
     setSearchKeyword(changeSearchKeyword);
   };
 
@@ -16,7 +19,7 @@ function SharedContent() {
     <main>
       <Searchbar handleSearchKeywordChange={handleSearchKeywordChange} />
       {searchKeyword && <SearchKeywordResult searchKeyword={searchKeyword} />}
-      {/* <SharedCardlist searchKeyword={searchKeyword} /> */}
+      <Cardlist links={links} searchKeyword={searchKeyword} />
     </main>
   );
 }
