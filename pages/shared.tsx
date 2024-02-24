@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import getSampleFolder from "@/api/getSampleFolder";
+import getUserProfile from "@/api/getUserProfile";
 import Header from "@/components/Header";
 import SharedTitlebar from "@/components/SharedComponents/SharedTitlebar";
 import SharedContent from "@/components/SharedComponents/SharedContent";
@@ -7,6 +8,16 @@ import Footer from "@/components/Footer";
 
 function SharedPage() {
   const [folder, setFolder] = useState<FolderData | null>(null);
+  const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
+
+  const loadUserProfile = async () => {
+    try {
+      const userProfile = await getUserProfile();
+      setUserProfile(userProfile);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const loadFolderDate = async () => {
     try {
@@ -19,10 +30,11 @@ function SharedPage() {
 
   useEffect(() => {
     loadFolderDate();
+    loadUserProfile();
   }, []);
 
   // null일경우 타입 오류 처리
-  if (folder === null) {
+  if (userProfile === null || folder === null) {
     return null;
   }
 
@@ -33,7 +45,7 @@ function SharedPage() {
 
   return (
     <>
-      <Header />
+      <Header userProfile={userProfile} />
       <SharedTitlebar
         owner={owner}
         profileImg={profileImg}

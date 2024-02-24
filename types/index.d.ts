@@ -25,5 +25,14 @@ interface UserProfileData {
   email: string;
   id: number;
   name: string;
-  profileImageSource: string;
+  profileImageSource?: string;
+}
+
+interface FolderUserData {
+  auth_id?: string;
+  created_at?: string;
+  email: string;
+  id: number;
+  image_source?: string;
+  name: string;
 }

@@ -11,7 +11,7 @@ function Card({ link }: CardProps) {
   const { title, description, url, imageSource, createdAt } = link;
 
   const timeAgo = getElapsedTime(createdAt);
-  const creatDate = createdAt
+  const createDate = createdAt
     .toString()
     .substring(0, 10)
     .replaceAll(/-/g, ". ");
@@ -30,7 +30,7 @@ function Card({ link }: CardProps) {
         <div className={styles["card-content"]}>
           <time className={styles["time-ago"]}>{timeAgo}</time>
           <p>{description}</p>
-          <time className={styles["creat-date"]}>{creatDate}</time>
+          <time className={styles["creat-date"]}>{createDate}</time>
         </div>
       </Link>
     </li>
