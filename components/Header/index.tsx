@@ -3,15 +3,8 @@ import getUserProfile from "@/api/getUserProfile";
 import Image from "next/image";
 import Link from "next/link";
 import UserProfile from "@/components/UserProfile";
-import Cta from "@/components/Cta";
+import LoginCTA from "@/components/LoginCTA";
 import styles from "./style.module.css";
-
-export interface UserProfileData {
-  email: string;
-  id: number;
-  name: string;
-  profileImageSource: string;
-}
 
 export default function Header() {
   const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
@@ -46,7 +39,7 @@ export default function Header() {
       {userProfile ? (
         <UserProfile userEmail={email} userImage={profileImageSource} />
       ) : (
-        <Cta />
+        <LoginCTA />
       )}
     </header>
   );

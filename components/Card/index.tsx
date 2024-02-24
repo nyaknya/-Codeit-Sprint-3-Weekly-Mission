@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import getElapsedTime from "@/utils/calculateDate";
 import styles from "./style.module.css";
-import { FolderLinksData } from "@/pages/shared";
 
 interface CardProps {
   link: FolderLinksData;
@@ -16,8 +15,6 @@ function Card({ link }: CardProps) {
     .toString()
     .substring(0, 10)
     .replaceAll(/-/g, ". ");
-
-  console.log(link);
 
   return (
     <li className={styles.card} key={link.id}>

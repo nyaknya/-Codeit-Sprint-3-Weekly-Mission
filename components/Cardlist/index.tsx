@@ -1,9 +1,8 @@
 import Card from "@/components/Card";
 import styles from "./style.module.css";
-import { FolderLinksData } from "@/pages/shared";
 
 interface CardlistProps {
-  links: FolderLinksData;
+  links: FolderLinksData[];
   searchKeyword: string;
 }
 
@@ -33,13 +32,10 @@ function Cardlist({ links, searchKeyword }: CardlistProps) {
   return (
     <section className="container">
       <ul className={styles.cardlist}>
-        {links.map((link: FolderLinksData) => {
-          if (isMatchSearchKeyword(link)) {
-            return <Card link={link} key={link.id} />;
-          } else {
-            return null;
-          }
-        })}
+        {links.map(
+          (link: FolderLinksData) =>
+            isMatchSearchKeyword(link) && <Card link={link} key={link.id} />
+        )}
       </ul>
     </section>
   );

@@ -5,33 +5,6 @@ import SharedTitlebar from "@/components/SharedComponents/SharedTitlebar";
 import SharedContent from "@/components/SharedComponents/SharedContent";
 import Footer from "@/components/Footer";
 
-export interface FolderLinksData {
-  map(
-    arg0: (link: FolderLinksData) => import("react").JSX.Element | null
-  ): import("react").ReactNode;
-  id: number;
-  createdAt: Date;
-  url: string;
-  title: string;
-  description: string;
-  imageSource: string;
-}
-[];
-
-interface FolderOwnerData {
-  id: number;
-  name: string;
-  profileImageSource: string;
-}
-
-export interface FolderData {
-  count: number;
-  id: number;
-  links: FolderLinksData;
-  name: string;
-  owner: FolderOwnerData;
-}
-
 function SharedPage() {
   const [folder, setFolder] = useState<FolderData | null>(null);
 

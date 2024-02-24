@@ -2,10 +2,9 @@ import { useState } from "react";
 import Searchbar from "@/components/Searchbar";
 import Cardlist from "@/components/Cardlist";
 import SearchKeywordResult from "@/components/SearchKeywordResult";
-import { FolderLinksData } from "@/pages/shared";
 
 interface SharedContentProps {
-  links: FolderLinksData;
+  links: FolderLinksData[];
 }
 
 function SharedContent({ links }: SharedContentProps) {
