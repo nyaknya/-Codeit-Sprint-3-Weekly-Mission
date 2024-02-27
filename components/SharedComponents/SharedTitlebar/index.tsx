@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import getSampleFolder from "@/api/getSampleFolder";
 import Image from "next/image";
-import styles from "./style.module.css";
+import styles from "@/styles/titlebar.module.css";
 
 interface SharedTitlebarProps {
   owner: string;

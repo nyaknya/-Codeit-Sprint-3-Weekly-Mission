@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import getFolderUser from "@/api/getFolderUser";
-
+import getAllFolderLinks from "@/api/getAllFolderLinks";
 import Header from "@/components/Header";
-// import SharedTitlebar from "@/components/SharedComponents/SharedTitlebar";
-// import SharedContent from "@/components/SharedComponents/SharedContent";
+import FolderTitlebar from "@/components/FolderComponents/FolderTitlebar";
+import FolderContent from "@/components/FolderComponents/FolderContent";
 import Footer from "@/components/Footer";
 
 function FolderPage() {
   const [folderUser, setFolderUser] = useState<FolderUserData | null>(null);
+  const [links, setLinks] = useState([]);
 
   const loadFolderUser = async () => {
     try {
@@ -18,8 +19,18 @@ function FolderPage() {
     }
   };
 
+  const loadAllFolderLinks = async () => {
+    try {
+      const allFolderLinks = await getAllFolderLinks();
+      setLinks(allFolderLinks.data || []);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     loadFolderUser();
+    loadAllFolderLinks();
   }, []);
 
   // null일경우 타입 오류 처리
@@ -30,8 +41,8 @@ function FolderPage() {
   return (
     <>
       <Header userProfile={folderUser} />
-      {/* <FolderTitlebar /> */}
-      {/* <FolderContent userInfo={userInfo} /> */}
+      <FolderTitlebar />
+      <FolderContent links={links} />
       <Footer />
     </>
   );

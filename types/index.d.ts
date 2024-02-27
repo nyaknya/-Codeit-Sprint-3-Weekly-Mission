@@ -1,10 +1,21 @@
-interface FolderLinksData {
+interface SharedFolderLinksData {
   id: number;
   createdAt: Date;
   url: string;
   title: string;
   description: string;
-  imageSource: string;
+  imageSource?: string;
+}
+
+interface FolderLinksData {
+  created_at: Date;
+  description: string;
+  folder_id: number;
+  id: number;
+  updated_at: Date;
+  image_source: string;
+  title: string;
+  url: string;
 }
 
 interface FolderOwnerData {
@@ -16,7 +27,7 @@ interface FolderOwnerData {
 interface FolderData {
   count: number;
   id: number;
-  links: FolderLinksData[];
+  links: SharedFolderLinksData[];
   name: string;
   owner: FolderOwnerData;
 }
@@ -35,4 +46,13 @@ interface FolderUserData {
   id: number;
   image_source?: string;
   name: string;
+}
+
+interface FolderFilterKeywordData {
+  created_at: Date;
+  favorite: boolean;
+  id: number;
+  link: { count: number };
+  name: string;
+  user_id: number;
 }

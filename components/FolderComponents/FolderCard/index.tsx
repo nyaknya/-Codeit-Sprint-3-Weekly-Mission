@@ -1,17 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import getElapsedTime from "@/utils/calculateDate";
-import styles from "./style.module.css";
+import styles from "@/styles/card.module.css";
 
 interface CardProps {
   link: FolderLinksData;
 }
 
-function Card({ link }: CardProps) {
-  const { title, description, url, imageSource, createdAt } = link;
+function FolderCard({ link }: CardProps) {
+  const { title, description, url, created_at, image_source } = link;
 
-  const timeAgo = getElapsedTime(createdAt);
-  const createDate = createdAt
+  const timeAgo = getElapsedTime(created_at);
+  const createDate = created_at
     .toString()
     .substring(0, 10)
     .replaceAll(/-/g, ". ");
@@ -21,7 +21,7 @@ function Card({ link }: CardProps) {
       <Link href={url} target="_blank">
         <div className={styles["card-imgbox"]}>
           <Image
-            src={imageSource ?? "/assets/defalutimg.png"}
+            src={image_source ?? "/assets/defalutimg.png"}
             alt={title}
             width={320}
             height={200}
@@ -37,4 +37,4 @@ function Card({ link }: CardProps) {
   );
 }
 
-export default Card;
+export default FolderCard;

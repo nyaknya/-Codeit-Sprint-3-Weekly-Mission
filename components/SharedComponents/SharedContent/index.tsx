@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Searchbar from "@/components/Searchbar";
-import Cardlist from "@/components/Cardlist";
+import SharedCardlist from "@/components/SharedComponents/SharedCardlist";
 import SearchKeywordResult from "@/components/SearchKeywordResult";
 
 interface SharedContentProps {
-  links: FolderLinksData[];
+  links: SharedFolderLinksData[];
 }
 
 function SharedContent({ links }: SharedContentProps) {
@@ -18,7 +18,7 @@ function SharedContent({ links }: SharedContentProps) {
     <main>
       <Searchbar handleSearchKeywordChange={handleSearchKeywordChange} />
       {searchKeyword && <SearchKeywordResult searchKeyword={searchKeyword} />}
-      <Cardlist links={links} searchKeyword={searchKeyword} />
+      <SharedCardlist links={links} searchKeyword={searchKeyword} />
     </main>
   );
 }
