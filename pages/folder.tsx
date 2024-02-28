@@ -6,7 +6,7 @@ import FolderTitlebar from "@/components/FolderComponents/FolderTitlebar";
 import FolderContent from "@/components/FolderComponents/FolderContent";
 import Footer from "@/components/Footer";
 
-function FolderPage() {
+export default function FolderPage() {
   const [folderUser, setFolderUser] = useState<FolderUserData | null>(null);
   const [links, setLinks] = useState([]);
 
@@ -47,5 +47,3 @@ function FolderPage() {
     </>
   );
 }
-
-export default FolderPage;

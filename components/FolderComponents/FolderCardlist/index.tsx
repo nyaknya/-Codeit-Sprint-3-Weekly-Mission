@@ -1,5 +1,6 @@
 import getAllFolderLinks from "@/api/getAllFolderLinks";
 import getFolderLinks from "@/api/getFolderLinks";
+import isMatchSearchKeyword from "@/utils/isMatchSearchKeyword";
 import FolderCard from "@/components/FolderComponents/FolderCard";
 import styles from "@/styles/cardlist.module.css";
 import { useEffect, useState } from "react";
@@ -7,7 +8,7 @@ import { useEffect, useState } from "react";
 interface FolderCardlistProps {
   links: FolderLinksData[];
   searchKeyword: string;
-  selectedKeyword: FolderFilterKeywordData;
+  selectedKeyword: FolderFilterKeywordData | string;
 }
 
 function FolderCardlist({
@@ -37,32 +38,8 @@ function FolderCardlist({
   };
 
   useEffect(() => {
-    {
-      selectedKeyword === "전체" ? loadAllFolderDate() : loadFolderDate();
-    }
+    selectedKeyword === "전체" ? loadAllFolderDate() : loadFolderDate();
   }, [selectedId]);
-
-  const isMatchSearchKeyword = (link: FolderLinksData) => {
-    if (!searchKeyword) {
-      return true;
-    }
-
-    if (!link) {
-      return false;
-    }
-
-    const urlMatch = link.url
-      ? link.url.toUpperCase().includes(searchKeyword.toUpperCase())
-      : false;
-    const titleMatch = link.title
-      ? link.title.toUpperCase().includes(searchKeyword.toUpperCase())
-      : false;
-    const descriptionMatch = link.description
-      ? link.description.toUpperCase().includes(searchKeyword.toUpperCase())
-      : false;
-
-    return urlMatch || titleMatch || descriptionMatch;
-  };
 
   return (
     <section className="container">
@@ -70,7 +47,7 @@ function FolderCardlist({
         {folderKeyword.length ? (
           links.map(
             (link: FolderLinksData) =>
-              isMatchSearchKeyword(link) && (
+              isMatchSearchKeyword(link, searchKeyword) && (
                 <FolderCard link={link} key={link.id} />
               )
           )

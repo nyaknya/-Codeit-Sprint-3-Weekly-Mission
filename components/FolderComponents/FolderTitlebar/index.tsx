@@ -1,6 +1,6 @@
 import styles from "@/styles/titlebar.module.css";
 
-function FolderTitlebar() {
+export default function FolderTitlebar() {
   return (
     <section className={styles["titlebar-section"]}>
       <div className="container">
@@ -12,5 +12,3 @@ function FolderTitlebar() {
     </section>
   );
 }
-
-export default FolderTitlebar;

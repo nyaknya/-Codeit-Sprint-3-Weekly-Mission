@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import getFolderFilterKeywords from "@/api/getFolderFilterKeywords";
 import Searchbar from "@/components/Searchbar";
 import FolderCardlist from "@/components/FolderComponents/FolderCardlist";
@@ -9,9 +9,11 @@ interface FolderContentProps {
   links: FolderLinksData[];
 }
 
-function FolderContent({ links }: FolderContentProps) {
+export default function FolderContent({ links }: FolderContentProps) {
   const [keywords, setKeywords] = useState({ data: [] });
-  const [selectedKeyword, setSelectedKeyword] = useState("전체");
+  const [selectedKeyword, setSelectedKeyword] = useState<
+    FolderFilterKeywordData | string
+  >("전체");
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const loadFolderKeywords = async () => {
@@ -27,11 +29,11 @@ function FolderContent({ links }: FolderContentProps) {
     loadFolderKeywords();
   }, []);
 
-  const handleAllKeywordsClick = (e: MouseEvent) => {
-    if (e.target === null) {
+  const handleAllKeywordsClick = (e: MouseEvent<HTMLLIElement>) => {
+    if (e.currentTarget === null) {
       return;
     }
-    const allClickedKeyword = e.target.innerText;
+    const allClickedKeyword = e.currentTarget.innerText;
     setSelectedKeyword(allClickedKeyword);
   };
 
@@ -61,5 +63,3 @@ function FolderContent({ links }: FolderContentProps) {
     </main>
   );
 }
-
-export default FolderContent;

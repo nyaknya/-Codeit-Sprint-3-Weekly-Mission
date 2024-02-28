@@ -6,7 +6,10 @@ interface UserProfileProps {
   userImage?: string;
 }
 
-function UserProfile({ userEmail, userImage }: UserProfileProps) {
+export default function UserProfile({
+  userEmail,
+  userImage,
+}: UserProfileProps) {
   return (
     <div className={styles["header-user"]}>
       <i className={styles["profile-icon"]}>
@@ -21,5 +24,3 @@ function UserProfile({ userEmail, userImage }: UserProfileProps) {
     </div>
   );
 }
-
-export default UserProfile;

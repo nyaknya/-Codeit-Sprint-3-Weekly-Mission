@@ -1,6 +1,6 @@
 interface SharedFolderLinksData {
   id: number;
-  createdAt: Date;
+  createdAt?: Date;
   url: string;
   title: string;
   description: string;
@@ -8,12 +8,12 @@ interface SharedFolderLinksData {
 }
 
 interface FolderLinksData {
-  created_at: Date;
+  created_at?: Date;
   description: string;
-  folder_id: number;
+  folder_id?: number;
   id: number;
-  updated_at: Date;
-  image_source: string;
+  updated_at?: Date;
+  image_source?: string;
   title: string;
   url: string;
 }
@@ -56,3 +56,5 @@ interface FolderFilterKeywordData {
   name: string;
   user_id: number;
 }
+
+type LinkDataType = FolderLinksData | SharedFolderLinksData;

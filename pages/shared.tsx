@@ -6,7 +6,7 @@ import SharedTitlebar from "@/components/SharedComponents/SharedTitlebar";
 import SharedContent from "@/components/SharedComponents/SharedContent";
 import Footer from "@/components/Footer";
 
-function SharedPage() {
+export default function SharedPage() {
   const [folder, setFolder] = useState<FolderData | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
 
@@ -56,5 +56,3 @@ function SharedPage() {
     </>
   );
 }
-
-export default SharedPage;

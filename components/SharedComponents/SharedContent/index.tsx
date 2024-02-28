@@ -7,7 +7,7 @@ interface SharedContentProps {
   links: SharedFolderLinksData[];
 }
 
-function SharedContent({ links }: SharedContentProps) {
+export default function SharedContent({ links }: SharedContentProps) {
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const handleSearchKeywordChange = (changeSearchKeyword: string) => {
@@ -22,5 +22,3 @@ function SharedContent({ links }: SharedContentProps) {
     </main>
   );
 }
-
-export default SharedContent;

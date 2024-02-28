@@ -7,7 +7,7 @@ interface SharedTitlebarProps {
   folderName: string;
 }
 
-function SharedTitlebar({
+export default function SharedTitlebar({
   owner,
   profileImg,
   folderName,
@@ -25,5 +25,3 @@ function SharedTitlebar({
     </section>
   );
 }
-
-export default SharedTitlebar;
